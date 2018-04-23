@@ -1,0 +1,4 @@
+#!bin/sh
+
+scp -r files/* root@10.5.0.1:/
+scp -r luasrc/* root@10.5.0.1:/usr/lib/lua/luci
