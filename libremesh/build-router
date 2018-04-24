@@ -2,3 +2,5 @@
 
 scp -r files/* root@10.5.0.1:/
 scp -r luasrc/* root@10.5.0.1:/usr/lib/lua/luci
+
+ssh root@10.5.0.1 chmod +x /www/cgi-bin/client_ip
