@@ -1,6 +1,7 @@
 .DS_Store
 .history/
-
+db.csv
+db2.csv
 # Logs
 logs
 *.log

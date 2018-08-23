@@ -1,0 +1,6 @@
+#!bin/sh
+
+scp -r files/* root@thisnode.info:/
+scp -r luasrc/* root@thisnode.info:/usr/lib/lua/luci
+
+ssh root@thisnode.info "chmod +x /www/cgi-bin/client_ip && chmod +x /usr/libexec/rpcd/lime-voucher && service rpcd restart"

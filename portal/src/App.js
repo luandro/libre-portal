@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Map from './Map'
+import './App.css'
 
-class App extends Component {
+export default class App extends Component {
+  state = {
+    text: '',
+  }
+
+  updateInput = (e) => {
+    this.setState({ text: e.target.value })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <form method="GET" action="$authaction">
+          <input type="hidden" name="tok" value="$tok" />
+          <input type="hidden" name="redir" value="$redir" />
+          <fieldset>
+            <input type="text" name="voucher" id="voucher" placeholder="inserir vale" size="12" className="dest" value={this.state.text} onChange={this.updateInput} />
+            <input type="submit" value="OK" />
+            <br/>
+          </fieldset>
+        </form>
+        <br />
+        <Map />
       </div>
-    );
+    )
   }
 }
-
-export default App;

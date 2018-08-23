@@ -6,10 +6,10 @@
   "scripts": {
     "start": "http-server -p 3000",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-router": "cd libremesh && sh ./build-router",
-    "install-portal": "scp ./beta/install-voucher.sh root@thisnode.info:/tmp && ssh root@thisnode.info 'sh /tmp/install-voucher.sh' ",
-    "copy-portal": "scp ./beta/splash.html root@thisnode.info:/etc/nodogsplash/htdocs/ && scp ./beta/img.jpg root@thisnode.info:/www/nds/",
-    "admin": "sh ./beta/voucher-admin.sh"
+    "build-router": "cd pitbull && sh ./build-router",
+    "install-portal": "scp ./nodogsplash/install-voucher.sh root@thisnode.info:/tmp && ssh root@thisnode.info 'sh /tmp/install-voucher.sh' ",
+    "copy-portal": "scp ./nodogsplash/splash.html root@thisnode.info:/etc/nodogsplash/htdocs/ && scp ./nodogsplash/img.jpg root@thisnode.info:/www/nds/",
+    "admin": "sh ./nodogsplash/voucher-admin.sh"
   },
   "keywords": [],
   "author": "",
