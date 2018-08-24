@@ -109,7 +109,7 @@ export default class AddVoucher extends Component {
     const { access } = this.props
     return (
       <div>
-        <h3>grant access to device</h3>
+        <h3>grant access a device</h3>
         <select onChange={e => this.updateInput(e, 'macAddress')} value={macAddress}>
           {clients.map(client => {
             const vouched = macs.filter(mac => mac === client.mac)[0]
@@ -124,7 +124,7 @@ export default class AddVoucher extends Component {
         </select>
         <input type='text' placeholder='voucher' size="12" value={auth} onChange={e => this.updateInput(e, 'auth')} />
         <button onClick={this.authVoucher}>Grant Access</button>
-        <button onClick={this.authVoucher}>Revoke Access</button>
+        {/* <button onClick={this.authVoucher}>Revoke Access</button> */}
         {(access && (access[3] === '*')) && <div>
           <h2>Admin</h2>
           <h3>generate new voucher</h3>

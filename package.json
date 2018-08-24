@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server -p 3000",
+    "start": "cd portal && npm start",
+    "dev-portal": "http-server -p 3000",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-router": "cd pitbull && sh ./build-router",
     "install-portal": "scp ./nodogsplash/install-voucher.sh root@thisnode.info:/tmp && ssh root@thisnode.info 'sh /tmp/install-voucher.sh' ",

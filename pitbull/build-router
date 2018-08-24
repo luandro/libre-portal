@@ -1,7 +1,8 @@
 #!bin/sh
 
 while true; do
-    read -p "Do you have ip6tables-mod-nat installed?" yn
+    echo "Do you have ip6tables-mod-nat installed?"
+    read yn
     case $yn in
         [Yy]* ) echo ""; break;;
         [Nn]* ) ssh root@10.5.0.1 "opkg update && opkg install ip6tables-mod-nat"; break;;
