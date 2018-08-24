@@ -1,11 +1,10 @@
 .App {
-  height: 100vh;
   text-align: center;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
 .App-header {
@@ -21,4 +20,9 @@
 
 .App-intro {
   font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

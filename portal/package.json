@@ -44,14 +44,14 @@
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
     "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3"
+    "whatwg-fetch": "^2.0.4"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "copy-build": "scp -r build/* rock64@rock64:/home/rock64/portal/",
-    "copy-index": "scp build/index.html root@thisnode.info:/etc/nodogsplash/htdocs/splash.html",
+    "copy-build-cpu": "scp -r build/* rock64@rock64:/home/rock64/portal/",
+    "copy-index-nodogplash": "scp build/index.html root@10.5.0.1:/etc/nodogsplash/htdocs/splash.html",
     "publish": "npm run copy-build && npm run copy-index"
   },
   "jest": {

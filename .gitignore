@@ -1,5 +1,6 @@
 .DS_Store
 .history/
+.vscode/
 db.csv
 db2.csv
 # Logs
