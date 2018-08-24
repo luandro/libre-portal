@@ -7,8 +7,10 @@ Make sure you have NodeJS installed and a LibreMesh router accessible thru `10.5
 
 `git clone https://github.com/luandro/libre-portal.git`
 
-`cd libre-portal && npm i`
+Enter the directory and install dependencies for the app:
+`cd libre-portal && npm run install`
 
+Copy the necessary files to the router:
 `npm run build-router`
 
 Now you'll need to SSH into the router and run `service rpcd restart` on the router in order to restart ubus.
