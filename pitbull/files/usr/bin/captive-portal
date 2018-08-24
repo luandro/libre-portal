@@ -7,11 +7,8 @@
 
 # Todo: build script that asks for single-board computer's ipv4 and ipv6 address
 ANYGW6=fd66:66:66:8:eade:27ff:fe90:7fa1
-ANYGW4=10.5.0.52
-# ANYGW6=2801:1e8:5::1
+ANYGW4=10.5.0.1
 MESH4=10.5.0.0/8
-# MESH6=fd66:66:66::/64
-# MESH4=10.0.0.0/8
 MESH6=fd66:66:66::/64
 
 voucher print_valid_macs > /tmp/validmacs
