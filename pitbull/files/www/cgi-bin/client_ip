@@ -6,7 +6,7 @@ print ("Content-type: application/json\n")
 local ip = os.getenv('REMOTE_ADDR')
 
 local function get_mac_from_ip(ip)
-    local command = 'ping -i 0.2 -w 0.2 -c 1 '..ip..' >/dev/null; cat /proc/net/arp | grep '..ip..' | grep br-lan | awk \'{print $4}\' | head -c -1'
+    local command = 'cat /proc/net/arp | grep 10.5.0.159 | awk  \'{print $4}\''
     fd = io.popen(command, 'r')
     local output = fd:read('*all')
     fd:close()
