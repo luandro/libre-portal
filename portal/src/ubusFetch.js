@@ -1,4 +1,4 @@
-const url = 'http://10.5.0.1/ubus'
+const url = 'http://thisnode.info/ubus'
 
 function parseJSON(response) {
   return response.json()
@@ -21,7 +21,7 @@ export default ({ session, call, login, params }) => new Promise((resolve, rejec
     method: 'POST',
     body: JSON.stringify(form),
     headers: {
-      'Access-Control-Allow-Origin': 'http://10.5.0.1'
+      'Access-Control-Allow-Origin': 'http://thisnode.info'
     },
   })
   .then(parseJSON)

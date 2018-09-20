@@ -51,7 +51,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "copy-build-cpu": "scp -r build/* rock64@rock64:/home/rock64/portal/",
-    "copy-index-nodogplash": "scp build/index.html root@10.5.0.1:/etc/nodogsplash/htdocs/splash.html",
+    "copy-index-nodogplash": "scp build/index.html root@thisnode.info:/etc/nodogsplash/htdocs/splash.html",
     "publish": "npm run copy-build && npm run copy-index"
   },
   "jest": {

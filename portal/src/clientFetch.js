@@ -1,4 +1,4 @@
-const url = 'http://10.5.0.1/cgi-bin/client_ip'
+const url = 'http://thisnode.info/cgi-bin/client_ip'
 
 function parseJSON(response) {
   return response.json()

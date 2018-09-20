@@ -5,14 +5,14 @@ while true; do
     read yn
     case $yn in
         [Yy]* ) echo ""; break;;
-        [Nn]* ) ssh root@10.5.0.1 "opkg update && opkg install ip6tables-mod-nat"; break;;
+        [Nn]* ) ssh root@thisnode.info "opkg update && opkg install ip6tables-mod-nat"; break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
 echo "Copying Pitbull files..."
-scp -r files/* root@10.5.0.1:/
-scp -r luasrc/* root@10.5.0.1:/usr/lib/lua/luci
+scp -r files/* root@thisnode.info:/
+scp -r luasrc/* root@thisnode.info:/usr/lib/lua/luci
 
-ssh root@10.5.0.1 "chmod +x /www/cgi-bin/client_ip && chmod +x /usr/libexec/rpcd/lime-voucher"
+ssh root@thisnode.info "chmod +x /www/cgi-bin/client_ip && chmod +x /usr/libexec/rpcd/lime-voucher"
 echo "Done! Run 'service rpcd restart' on the router to apply changes."

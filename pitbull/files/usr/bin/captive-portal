@@ -14,7 +14,7 @@ ipv4mask2cdr ()
    echo $(( $2 + (${#x}/4) ))
 }
 
-ANYGW6=$(uci get network.lm_net_br_lan_anygw_if.ip6addr)
+ANYGW6=$(uci get network.lan.ip6addr | cut -d/ -f1)
 ANYGW4=$(uci get network.lm_net_br_lan_anygw_if.ipaddr)
 MESH4MASK=$(uci get network.lm_net_anygw_route4.netmask)
 MESH4=$(uci get network.lm_net_anygw_route4.target)/$(ipv4mask2cdr $MESH4MASK)
