@@ -1,4 +1,9 @@
 #!/usr/bin/lua
+local dba = require('voucher.db')
+local config = require('voucher.config')
+local logic = require('voucher.logic')
+local ft = require('voucher.functools')
+
 
 local function shell(command)
   local handle = io.popen(command)
@@ -66,11 +71,6 @@ local function get_vouchers()
 end
 
 local function publish_vouchers()
---  local config = require('voucher.config')
---  local dba = require('voucher.db')
---  local logic = require('voucher.logic')
---  local ft = require('voucher.functools')
-
 -- pass a raw chunk of data to alfred
   local fd = io.popen("alfred -s " .. type_id, "w")
   if fd then
