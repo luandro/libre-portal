@@ -51,10 +51,8 @@ iptables -X internet -t mangle
 ip6tables -F internet -t mangle
 ip6tables -X internet -t mangle
 
-iptables -t mangle -D internet  -p tcp --dport 80 -j MARK --set-mark 99
-iptables -t mangle -D internet  -p tcp --dport 443 -j MARK --set-mark 99
-ip6tables -t mangle -D internet  -p tcp --dport 80 -j MARK --set-mark 99
-ip6tables -t mangle -D internet  -p tcp --dport 443 -j MARK --set-mark 99
+iptables -t mangle -D internet  -p tcp --dport 1:65535 -j MARK --set-mark 99
+ip6tables -t mangle -D internet  -p tcp --dport 1:65535 -j MARK --set-mark 99
 
 iptables -t nat -D PREROUTING -m mark --mark 99 -j DNAT --to-destination $ANYGW4
 ip6tables -t nat -D PREROUTING -m mark --mark 99 -j DNAT --to-destination $ANYGW6
@@ -73,8 +71,7 @@ awk 'BEGIN { FS="\t"; } { system("iptables -t mangle -A internet -m mac --mac-so
 
 iptables -t mangle -A internet -d "$MESH4" -j RETURN
 
-iptables -t mangle -A internet  -p tcp --dport 80 -j MARK --set-mark 99
-iptables -t mangle -A internet  -p tcp --dport 443 -j MARK --set-mark 99
+iptables -t mangle -A internet  -p tcp --dport 1:65535 -j MARK --set-mark 99
 
 iptables -t mangle -A PREROUTING -j internet
 iptables -t nat -A PREROUTING -m mark --mark 99 -j DNAT --to-destination $ANYGW4
@@ -89,8 +86,7 @@ awk 'BEGIN { FS="\t"; } { system("ip6tables -t mangle -A internet -m mac --mac-s
 
 ip6tables -t mangle -A internet -d "$MESH6" -j RETURN
 
-ip6tables -t mangle -A internet  -p tcp --dport 80 -j MARK --set-mark 99
-ip6tables -t mangle -A internet  -p tcp --dport 443 -j MARK --set-mark 99
+ip6tables -t mangle -A internet  -p tcp --dport 1:65535 -j MARK --set-mark 99
 
 ip6tables -t mangle -A PREROUTING -j internet
 ip6tables -t nat -A PREROUTING -m mark --mark 99 -j DNAT --to-destination $ANYGW6

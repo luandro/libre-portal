@@ -1,0 +1,3 @@
+#!/usr/bin/lua
+
+print ("Status: 307 Temporary Redirect\r\n")
