@@ -120,5 +120,5 @@ end
    end
  end
 
---publish_vouchers()
+publish_vouchers()
 receive_bat_hosts()
