@@ -11,11 +11,9 @@ while true; do
 done
 
 echo "Copying Pitbull files..."
-scp -r files/* root@thisnode.info:/
-scp -r luasrc/* root@thisnode.info:/usr/lib/lua/luci
+scp -r files/* root@thisnode.info:/ && scp -r luasrc/* root@thisnode.info:/usr/lib/lua/luci
 
-ssh root@thisnode.info "chmod +x /www/cgi-bin/client_ip && chmod +x /usr/libexec/rpcd/lime-voucher && chmod +x /www/error_handler"
-ssh root@thisnode.info "/etc/init.d/rpcd restart && /etc/init.d/uhttpd restart && wifi down && wifi up"
+ssh root@thisnode.info "chmod +x /www/cgi-bin/client_ip && chmod +x /usr/libexec/rpcd/lime-voucher && chmod +x /www/cgi-bin/error_handler && /etc/init.d/rpcd restart && /etc/init.d/uhttpd restart && wifi down && wifi up"
 echo "Done! Setting up"
 while true; do
     echo "Do you want to start the captive portal?"
