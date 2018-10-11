@@ -1,7 +1,8 @@
 const url = 'http://thisnode.info/cgi-bin/client_ip'
 
 function parseJSON(response) {
-  return response.json()
+  if (response && response.status === 200) return response.json()
+  else return { error: true }
 }
 
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import fetch from './ubusFetch'
-import client from './clientFetch'
+import fetch from '../utils/ubusFetch'
+import client from '../utils/clientIpFetch'
+import Login from './Login'
 
-export default class AddVoucher extends Component {
+export default class Admin extends Component {
   state = {
     clients: [],
     macs: [],
@@ -137,6 +138,7 @@ export default class AddVoucher extends Component {
             </fieldset>
           </form>
         </div>}
+        <Login updateSession={this.props.updateSession} />
       </div>
     )
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import fetch from './ubusFetch'
-export default class AddVoucher extends Component {
+import fetch from '../utils/ubusFetch'
+export default class Login extends Component {
   state = {
     password: '',
     admin: null,

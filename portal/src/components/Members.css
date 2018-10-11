@@ -1,0 +1,35 @@
+.bg {
+  background: #7C7877;
+  padding: 6px;
+  color: #011627;
+}
+.bg-c2b6 {
+  background: #F0E5DE;
+}
+.bg2 {
+  background: #F0E5DE;
+  margin: 0 auto;
+  text-align: center;
+}
+.box {
+  margin: 0 auto;
+  padding-top: 25px;
+  background: #F0E5DE;
+  padding-bottom: 50px;
+  max-width: 968px;
+}
+img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.title {
+  color: #011627;
+  font-weight: 100;
+  padding-bottom: 15px;
+  width: 100%;
+}
+.text {
+}
+form {
+  background: #F0E5DE;
+}
