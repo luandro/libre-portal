@@ -35,7 +35,7 @@ export default class CommunityMap extends Component {
       <Map center={position} zoom={this.state.zoom} zoomControl={false} className="Map">
         <TileLayer
           // attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-          url="https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibHVhbmRybyIsImEiOiJMQWVvZmtJIn0.NYpCUtwAgVlAF1LeeJBbug"
+          url="./static/12/{z}/{x}/{y}.png"
         />
         <ZoomControl position="topright" />
         <MarkersList markers={this.state.markers} />

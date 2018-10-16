@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import ubusAuth from '../utils/ubusFetch'
 import Drawer from './Drawer'
 import AppBar from './AppBar'
-// import Login from './Login'
-// import AddVoucher from './AddVoucher'
 import Map from './Map'
 import Members from './Members'
 import About from './About'
@@ -32,6 +31,11 @@ export default class App extends Component {
     })
   }
 
+  componentDidMount() {
+    ubusAuth({})
+      .then(res => console.log('AUTH', res))
+  }
+
   render() {
     const { session, access, drawer } = this.state
     return (
@@ -39,11 +43,14 @@ export default class App extends Component {
         <div className="App">
           <AppBar toggleDrawer={this.toggleDrawer} />
           <Drawer toggleDrawer={this.toggleDrawer} open={drawer}/>
-          <Route exact path="/" component={Map} />
+          <Route
+            exact path="/"
+            render={props => <Members {...props} session={session} access={access} />}
+          />
           <Route exact path="/sobre" component={About} />
           <Route
-            path="/membros"
-            render={props => <Members {...props} session={session} access={access} />}
+            path="/map"
+            render={props => <Map />}
           />
           <Route
             path="/admin"

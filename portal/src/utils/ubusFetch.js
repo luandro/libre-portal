@@ -5,18 +5,19 @@ function parseJSON(response) {
 }
 
 
-export default ({ session, call, login, params }) => new Promise((resolve, reject) => {
+export default ({ session, call, params }) => new Promise((resolve, reject) => {
   const form = {
     id: 99,
     jsonrpc: '2.0',
     method: 'call',
     params:[
       session || '00000000000000000000000000000000',
-      login ? 'session' : 'lime-voucher',
-      login ? 'login' : call,
+      call ? 'lime-voucher' : 'session',
+      call ? call : 'login',
       params || {},
     ]
   }
+  console.log(form.params)
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(form),
@@ -26,8 +27,11 @@ export default ({ session, call, login, params }) => new Promise((resolve, rejec
   })
   .then(parseJSON)
   .then((res) => {
+    console.log('Ubus res: ', res)
     if (res && res.result[1]) {
       resolve(res.result[1])
+    } else if (res.error) {
+      reject(res.error)
     }
   })
   .catch((err) => {

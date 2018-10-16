@@ -69,7 +69,7 @@ export default class Members extends Component {
                 margin="normal"
               />
               <br />
-              <Button variant="contained" color="secondary" onClick={this.authVoucher}>
+              <Button variant="contained" color="primary" onClick={this.authVoucher}>
                 Liberar Acesso
               </Button>
             </div>
