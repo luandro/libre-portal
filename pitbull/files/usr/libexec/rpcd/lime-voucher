@@ -84,8 +84,9 @@ local function get_clients(msg)
         local words = {}
         for w in line:gmatch("%S+") do if w ~= "" then table.insert(words, w) end end
         local mac = words[2]
+        local ip = words[3]
         local station = words[4]
-        table.insert(result.clients, { station=station, mac=mac })
+        table.insert(result.clients, { station=station, ip=ip, mac=mac })
     end
     printJson(result);
 end

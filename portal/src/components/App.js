@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import ubusAuth from '../utils/ubusFetch'
 import Drawer from './Drawer'
 import AppBar from './AppBar'
 import Map from './Map'
 import Members from './Members'
 import About from './About'
 import Admin from './Admin'
-
-
 import './App.css'
 
 export default class App extends Component {
@@ -31,29 +28,28 @@ export default class App extends Component {
     })
   }
 
-  componentDidMount() {
-    ubusAuth({})
-      .then(res => console.log('AUTH', res))
-  }
-
   render() {
     const { session, access, drawer } = this.state
+    console.log('process.env.PUBLIC_URL', process.env.PUBLIC_URL)
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL ? '/portal' : ''}>
         <div className="App">
           <AppBar toggleDrawer={this.toggleDrawer} />
           <Drawer toggleDrawer={this.toggleDrawer} open={drawer}/>
           <Route
-            exact path="/"
+            path={`${process.env.PUBLIC_URL}/`}
             render={props => <Members {...props} session={session} access={access} />}
           />
-          <Route exact path="/sobre" component={About} />
           <Route
-            path="/map"
+            path={`${process.env.PUBLIC_URL}/sobre`}
+            component={About}
+          />
+          <Route
+            path={`${process.env.PUBLIC_URL}/map`}
             render={props => <Map />}
           />
           <Route
-            path="/admin"
+            path={`${process.env.PUBLIC_URL}/admin`}
             render={props => <Admin {...props} session={session} access={access} updateSession={this.updateSession} />}
           />
           {/* <AddVoucher

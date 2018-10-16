@@ -17,15 +17,15 @@ export default class SwipeableTemporaryDrawer extends React.Component {
     const sideList = (
       <div className="Drawer">
         <List component="nav">
-        <Link to="/">
+        <Link to={`${process.env.PUBLIC_URL}/`}>
           <ListItem button>
             <ListItemIcon>
               <MapIcon />
             </ListItemIcon>
-            <ListItemText primary="Mapa" />
+            <ListItemText primary="Home" />
           </ListItem>
         </Link>
-        <Link to="/sobre">
+        <Link to={`${process.env.PUBLIC_URL}/sobre`}>
           <ListItem button>
             <ListItemIcon>
               <PeopleIcon />
@@ -36,12 +36,12 @@ export default class SwipeableTemporaryDrawer extends React.Component {
       </List>
       <Divider />
       <List component="nav">
-        <Link to="/membros">
+        <Link to={`${process.env.PUBLIC_URL}/membros`}>
           <ListItem button>
             <ListItemText primary="Membros" />
           </ListItem>
         </Link>
-        <Link to="/admin">
+        <Link to={`${process.env.PUBLIC_URL}/admin`}>
           <ListItem button>
             <ListItemText primary="Administrador" />
           </ListItem>

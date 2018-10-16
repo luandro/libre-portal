@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import fetch from '../utils/ubusFetch'
-import client from '../utils/clientIpFetch'
+// import client from '../utils/clientIpFetch'
 import Login from './Login'
 
 export default class Admin extends Component {
@@ -40,8 +40,8 @@ export default class Admin extends Component {
   }
   
   getClientInfo = () => {
-    client()
-    .then(res => this.setState({ user: res, macAddress: res.mac }))
+    // client()
+    // .then(res => this.setState({ user: res, macAddress: res.mac }))
   }
 
   authVoucher = () => {

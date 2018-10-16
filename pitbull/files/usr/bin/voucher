@@ -11,6 +11,11 @@ local context
 
 captive_portal = {}
 
+
+-- captive_portal.get_mac = function(context)
+--     local ip = context[1]
+
+-- end
 --[[
 --Checks if a context(defined by a mac and a voucher code)
 --is authorized to be used, and associates the mac to the

@@ -17,7 +17,7 @@ export default ({ session, call, params }) => new Promise((resolve, reject) => {
       params || {},
     ]
   }
-  console.log(form.params)
+  // console.log(form.params)
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(form),
