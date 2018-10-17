@@ -32,7 +32,9 @@ export default class App extends Component {
     const { session, access, drawer } = this.state
     console.log('process.env.PUBLIC_URL', process.env.PUBLIC_URL)
     return (
-      <Router basename={process.env.PUBLIC_URL ? '/portal' : ''}>
+      <Router
+        // basename={process.env.PUBLIC_URL ? '/portal' : ''}
+      >
         <div className="App">
           <AppBar toggleDrawer={this.toggleDrawer} />
           <Drawer toggleDrawer={this.toggleDrawer} open={drawer}/>

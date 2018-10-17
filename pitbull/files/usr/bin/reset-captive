@@ -28,3 +28,6 @@ iptables -Z; # zero counters
 iptables -F; # flush (delete) rules
 iptables -X; # delete all extra chains
 echo "iptables now clean!"
+/etc/init.d/firewall reload
+/etc/init.d/firewall-lime reload
+echo "Reloaded! All Done..."
