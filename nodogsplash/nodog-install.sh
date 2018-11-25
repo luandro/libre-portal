@@ -16,37 +16,37 @@ config nodogsplash
   option config '/etc/nodogsplash/nodogsplash.conf'
 
   # The network the users are connected to
-  option network 'lan'
-  option gatewayname 'OpenWrt Nodogsplash'
-  option maxclients '250'
-  option clientidletimeout '1200'
+  # option network 'lan'
+  # option gatewayname 'OpenWrt Nodogsplash'
+  # option maxclients '250'
+  # option clientidletimeout '1200'
 
   # Your router may have several interfaces, and you
   # probably want to keep them private from the network/gatewayinterface.
   # If so, you should block the entire subnets on those interfaces, e.g.:
-  list authenticated_users 'block to 192.168.0.0/16'
-  list authenticated_users 'block to 10.0.0.0/8'
+  # list authenticated_users 'block to 192.168.0.0/16'
+  # list authenticated_users 'block to 10.0.0.0/8'
 
   # Typical ports you will probably want to open up.
-  list authenticated_users 'allow tcp port 22'
-  list authenticated_users 'allow tcp port 53'
-  list authenticated_users 'allow udp port 53'
-  list authenticated_users 'allow tcp port 80'
-  list authenticated_users 'allow tcp port 443'
+  # list authenticated_users 'allow tcp port 22'
+  # list authenticated_users 'allow tcp port 53'
+  # list authenticated_users 'allow udp port 53'
+  # list authenticated_users 'allow tcp port 80'
+  # list authenticated_users 'allow tcp port 443'
 
   # For preauthenticated users to resolve IP addresses in their
   # initial request not using the router itself as a DNS server,
-  list preauthenticated_users 'allow tcp port 53'
-  list preauthenticated_users 'allow udp port 53'
+  # list preauthenticated_users 'allow tcp port 53'
+  # list preauthenticated_users 'allow udp port 53'
 
   # Allow ports for SSH/Telnet/DNS/DHCP/HTTP/HTTPS
-  list users_to_router 'allow tcp port 22'
-  list users_to_router 'allow tcp port 23'
-  list users_to_router 'allow tcp port 53'
-  list users_to_router 'allow udp port 53'
-  list users_to_router 'allow udp port 67'
-  list users_to_router 'allow tcp port 80'
-  list users_to_router 'allow tcp port 443'
+  # list users_to_router 'allow tcp port 22'
+  # list users_to_router 'allow tcp port 23'
+  # list users_to_router 'allow tcp port 53'
+  # list users_to_router 'allow udp port 53'
+  # list users_to_router 'allow udp port 67'
+  # list users_to_router 'allow tcp port 80'
+  # list users_to_router 'allow tcp port 443'
 
   # MAC addresses that are / are not allowed to access the splash page
   # Value is either 'allow' or 'block'. The allowedmac or blockedmac list is used.
@@ -145,8 +145,6 @@ opkg update && opkg install http://nuvem.tk/files/vale_0.1-1_mips_24kc.ipk
 echo "Removing old conf"
 rm /etc/config/nodogsplash
 echo "$noConf" > /etc/config/nodogsplash
-echo "Updating splash screen"
-mv /etc/nodogsplash/htdocs/splash-vale.html /etc/nodogsplash/htdocs/splash.html
 echo "Setting new config for nodogsplash"
 echo "$config" > /etc/nodogsplash/nodogsplash.conf
 echo "Starting portal"

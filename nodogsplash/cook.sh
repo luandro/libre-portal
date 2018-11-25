@@ -1,3 +1,5 @@
+#!/bin/sh
+
 git clone https://github.com/libremesh/lime-sdk.git
 cd lime-sdk
 sudo docker build -t cooker .

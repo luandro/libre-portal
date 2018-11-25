@@ -1,3 +1,5 @@
+#!/bin/sh
+
 iptables -L -vn -t mangle
 ps | grep dns
 cp /var/etc/dnsmasq.conf.cfg02411c /etc/dnsmasq2

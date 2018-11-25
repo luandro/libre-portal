@@ -2,7 +2,17 @@
 
 Includes code for [pitbull](https://github.com/libremesh/pitbull), [lime-packages-ui/lime-voucher](https://github.com/libremesh/lime-packages-ui).
 
-## Usage
+## NoDogSplash
+Make sure you have NodeJS installed and a LibreMesh router accessible thru `thisnode.info`.
+
+Copy install to router and execute:
+`./nodogsplash/install.sh`
+
+Copy personalized splash screen:
+`./nodogsplash/post-install.sh`
+
+
+## Testing Pitbull
 Make sure you have NodeJS installed and a LibreMesh router accessible thru `thisnode.info`.
 
 `git clone https://github.com/luandro/libre-portal.git`
