@@ -60,7 +60,7 @@ export default class Admin extends Component {
       this.getAllowedMacs()
       this.setState({
         auth: '',
-      })
+      }, () => window.location.replace('http://psp.nohost.me'))
     })
     .catch(err => console.log(err))
   }

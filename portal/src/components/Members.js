@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import fetch from '../utils/ubusFetch'
 import getIp from '../utils/getIp'
 import './Members.css'
-import logo from './img.jpg'
+import logo from './psp.png'
 
 export default class Members extends Component {
   state = {
@@ -48,12 +48,9 @@ export default class Members extends Component {
       },
     })
     .then(res => {
-      console.log('RES', res)
-      if (res.result[0] !== 0)
-      console.log('SUCCESS ', res)
       this.setState({
         valid: true
-      })
+      }, () => window.location.replace('http://psp.nohost.me'))
     })
     .catch(err => console.log(err))
   }
@@ -83,15 +80,22 @@ export default class Members extends Component {
         <div className="bg2">
           <div id="bienvenida-page">
             <div className="box">
-              <img src={logo} alt="Rede Moinho" />
-              <h1 className="title">Bem vindo a  rede comunitária do Moinho</h1>
+              <img src={logo} alt="logo Portal sem Porteiras" />
+              <h1 className="title">Bem vindo a rede comunitária Portal sem Porteiras</h1>
               <br />
-              <p className="text">Essa rede foi criada e é mantida pela comunidade local. Usamos um sistema de vales para controlar o acesso a internet. Para ter acesso a internet pedimos uma taxa de <strong>R$20,00</strong> por aparelho por mês.
-                Os vales de acesso são limitados, para conseguir um ou em caso de dúvidas procure Aridi ou Luandro.
+              <p className="text">
+                Essa rede é fruto da iniciativa de alguns moradores em parcearia com a coolab. A rede comunitária não visa lucro, os custos da conexão são cotizados entre os usuários para pagar os materiais já adquiridos e técnicos para manutenção e implementação da rede. .
               </p>
+              <p className="text">
+                Para ter um código você pode se associar a Portal sem Porteiras ou adquirir um voucher. Para mais informações e esclarecimentos pergunte por ai ou entre em contato com 12 991917873
+              </p>
+              <p className="text">
+                Você tem livre acesso ao servidor do bairro mesmo sem voucher. Acesse os Serviços Locais para conhecer a biblioteca virtual e todas as aplicações que estamos desenvolvendo. Colabore com mais conteúdo. Para comunicação interna e gratuita com moradores do bairro instale os aplicativos existentes no nosso repositorios de app .
+              </p>
+              <h3>Acesse no portal da comunidade em <a href="http://psp.nohost.me">psp.nohost.me</a></h3>
               {!valid &&
                 <div>
-                  <p className="text">Caso já tenha um vale, insira-o no campo abaixo.</p>
+                  <p className="text">Caso tenha um vale, insira-o no campo abaixo.</p>
                   <TextField
                     id="voucher"
                     label="Segredo"
@@ -111,9 +115,9 @@ export default class Members extends Component {
                   <Button variant="contained" disabled onClick={this.authVoucher}>
                     Acesso liberado
                   </Button>
-                  <p>
+                  {/* <p>
                     estamos te redirecionando para a internet...
-                  </p>
+                  </p> */}
                 </div>
               }
             </div>
