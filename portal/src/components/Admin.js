@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import fetch from '../utils/ubusFetch'
-// import client from '../utils/clientIpFetch'
+import client from '../utils/getIp'
 import Login from './Login'
 
 export default class Admin extends Component {
@@ -40,8 +40,8 @@ export default class Admin extends Component {
   }
   
   getClientInfo = () => {
-    // client()
-    // .then(res => this.setState({ user: res, macAddress: res.mac }))
+    client()
+    .then(res => this.setState({ user: res, macAddress: res.mac }))
   }
 
   authVoucher = () => {
@@ -113,6 +113,7 @@ export default class Admin extends Component {
         <h3>grant access a device</h3>
         <select onChange={e => this.updateInput(e, 'macAddress')} value={macAddress}>
           {clients.map(client => {
+            console.log('CLIENT', client.mac, user)
             const vouched = macs.filter(mac => mac === client.mac)[0]
             const me = (client.mac === user.mac)
             return <option

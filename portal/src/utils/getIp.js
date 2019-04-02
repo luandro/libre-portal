@@ -1,3 +1,4 @@
+const url = 'http://thisnode.info/cgi-bin/client_ip'
 
 export default () => new Promise((resolve, reject) => {
   window.RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;//compatibility for Firefox and chrome
@@ -9,7 +10,26 @@ export default () => new Promise((resolve, reject) => {
       var myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
       console.log('my IP: ', myIP);   
       pc.onicecandidate = noop;
-      resolve(myIP)
+      myIP = undefined
+      if (myIP) resolve(myIP)
+      else {
+        fetch(url)
+        .then(i => {
+          console.log(i)
+          return JSON.parse(i) 
+        })
+        .then((res) => {
+          console.log('Ubus res: ', res)
+          if (res && res.result[1]) {
+            resolve(res.result[1])
+          } else if (res.error) {
+            reject(res.error)
+          }
+        })
+        .catch((err) => {
+          console.log('Erro no Ubus', err)
+        })
+      }
     }
   }
 })

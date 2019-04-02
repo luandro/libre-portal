@@ -35,7 +35,7 @@ export default ({ session, call, params }) => new Promise((resolve, reject) => {
     }
   })
   .catch((err) => {
-    console.log(err)
+    console.log('Erro no Ubus', err)
   })
   return {}
 })

@@ -2,7 +2,7 @@
   "name": "portal",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://thisnode.info/portal",
+  "homepage": "http://thisnode.info/pitbull",
   "dependencies": {
     "@material-ui/core": "^3.2.2",
     "@material-ui/icons": "^3.0.1",
@@ -17,7 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build && npm run clean",
     "clean": "find build/static -type f -iname \\*.map -delete && find . -name '.DS_Store' -type f -delete",
-    "publish": "npm run build && ssh root@thisnode.info 'rm -rf /www/portal' && scp -r ./build root@thisnode.info:/www/portal/",
+    "publish": "npm run build && ssh root@thisnode.info 'rm -rf /www/pitbull' && scp -r ./build root@thisnode.info:/www/pitbull/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
