@@ -21,6 +21,7 @@ export default class Members extends Component {
       const clients = await fetch({
         session,
         call: 'get_clients',
+        method: 'pirania-app',
       })
       const validMacs = await fetch({
         session,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
 import Drawer from './Drawer'
 import AppBar from './AppBar'
 import Map from './Map'
@@ -30,42 +30,37 @@ export default class App extends Component {
 
   render() {
     const { session, access, drawer } = this.state
-    console.log('process.env.PUBLIC_URL', process.env.PUBLIC_URL)
+    // console.log('process.env.PUBLIC_URL', process.env.PUBLIC_URL)
     return (
       <Router
-        // basename={process.env.PUBLIC_URL ? '/portal' : ''}
+        // basename={'/'}
       >
         <div className="App">
           <AppBar toggleDrawer={this.toggleDrawer} />
           <Drawer toggleDrawer={this.toggleDrawer} open={drawer}/>
-          <Switch>
-            <Route
-              path={`${process.env.PUBLIC_URL}/`}
-              render={props => <Members {...props} session={session} access={access} />}
-            />
-            <Route
-              path={`${process.env.PUBLIC_URL}/sobre`}
-              component={About}
-            />
-            <Route
-              path={`${process.env.PUBLIC_URL}/map`}
-              render={props => <Map />}
-            />
-            <Route
-              path={`${process.env.PUBLIC_URL}/admin`}
-              render={props => <Admin {...props} session={session} access={access} updateSession={this.updateSession} />}
-            />
-            {/* <AddVoucher
-              session={session}
-              access={access}
-            />
-            {!session && <Login
-              updateSession={this.updateSession}
-            />} */}
-            {/* <Route
-              render={props => <Members {...props} session={session} access={access} />}
-            /> */}
-          </Switch>
+          <Route
+            path={`/`}
+            render={props => <Members {...props} session={session} access={access} />}
+          />
+          <Route
+            path={`/sobre`}
+            component={About}
+          />
+          <Route
+            path={`/map`}
+            render={props => <Map />}
+          />
+          <Route
+            path={`/admin`}
+            render={props => <Admin {...props} session={session} access={access} updateSession={this.updateSession} />}
+          />
+          {/* <AddVoucher
+            session={session}
+            access={access}
+          />
+          {!session && <Login
+            updateSession={this.updateSession}
+          />} */}
         </div>
       </Router>
     )

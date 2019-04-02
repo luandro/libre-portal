@@ -26,7 +26,7 @@ export default class Login extends Component {
       if(res.ubus_rpc_session) {
         updateSession({
           session: res.ubus_rpc_session,
-          access: res.acls.ubus['lime-voucher']
+          access: res.acls.ubus['pirania']
         })
       }
     })

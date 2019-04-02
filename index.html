@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pirania Portal</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <p>Olá bem vindo ao pirania!</p>
+  <form method="post" onsubmit="submitForm(event, this)">
+      <input name="voucher" type="text" />
+      <input name="submit" type="submit" value="Enviar" />  
+  </form>
+  <script>
+    const ubus = ({ session, call, params }) => new Promise((resolve, reject) => {
+      const form = {
+        id: 99,
+        jsonrpc: '2.0',
+        method: 'call',
+        params:[
+          session || '00000000000000000000000000000000',
+          call ? 'pirania' : 'session',
+          call ? call : 'login',
+          params || {},
+        ]
+      }
+      // console.log(form.params)
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(form),
+        headers: {
+          'Access-Control-Allow-Origin': 'http://thisnode.info'
+        },
+      })
+      .then(parseJSON)
+      .then((res) => {
+        console.log('Ubus res: ', res)
+        if (res && res.result[1]) {
+          resolve(res.result[1])
+        } else if (res.error) {
+          reject(res.error)
+        }
+      })
+      .catch((err) => {
+        console.log('Erro no Ubus', err)
+      })
+      return {}
+    })
+    function submitForm(e, form){
+      e.preventDefault();
+      fetch({
+        session,
+        call: 'auth_voucher',
+        params: {
+          voucher,
+          mac: macAddress,
+        },
+      })
+      .then(res => {
+        console.log('RES', res)
+        if (res.result[0] !== 0)
+        console.log('SUCCESS ', res)
+        this.setState({
+          valid: true
+        })
+      })
+      .catch(err => console.log(err))
+    }
+
+
+  </script>
+</body>
+
+</html>

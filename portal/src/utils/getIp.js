@@ -8,9 +8,8 @@ export default () => new Promise((resolve, reject) => {
   pc.onicecandidate = function(ice) {
     if (ice && ice.candidate && ice.candidate.candidate) {
       var myIP = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/.exec(ice.candidate.candidate)[1];
-      console.log('my IP: ', myIP);   
+      // console.log('my IP: ', myIP);   
       pc.onicecandidate = noop;
-      myIP = undefined
       if (myIP) resolve(myIP)
       else {
         fetch(url)

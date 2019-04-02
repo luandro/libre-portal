@@ -20,6 +20,7 @@ export default class Admin extends Component {
     fetch({
       session,
       call: 'get_clients',
+      method: 'pirania-app',
     })
     .then(res => this.setState({
       clients: res.clients
@@ -113,7 +114,7 @@ export default class Admin extends Component {
         <h3>grant access a device</h3>
         <select onChange={e => this.updateInput(e, 'macAddress')} value={macAddress}>
           {clients.map(client => {
-            console.log('CLIENT', client.mac, user)
+            // console.log('CLIENT', client.mac, user)
             const vouched = macs.filter(mac => mac === client.mac)[0]
             const me = (client.mac === user.mac)
             return <option
