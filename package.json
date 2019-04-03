@@ -6,11 +6,8 @@
   "scripts": {
     "start": "cd portal && npm start",
     "install": "cd portal && npm i",
-    "dev-portal": "http-server -p 3000",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-router": "cd pitbull && sh ./build-router",
-    "install-portal": "cd portal && npm i && npm run publish",
-    "admin": "sh ./nodogsplash/voucher-admin.sh"
+    "install-portal": "npm run pirania-app && cd portal && npm i && npm run publish",
+    "pirania-app": "scp -r ./pirania-app/files/* root@thisnode.info:/ && ssh root@thisnode.info '/etc/init.d/rpcd restart && chmod +x /usr/libexec/rpcd/pirania-app && chmod +x /www/cgi-bin/client_ip'"
   },
   "keywords": [],
   "author": "",

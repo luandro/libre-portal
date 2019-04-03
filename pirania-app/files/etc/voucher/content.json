@@ -1,1 +1,23 @@
-{}
+{
+  "title": "Comunidade",
+  "backgroundColor": "#f0e5de",
+  "welcome": "Bem vindo a rede comunitária",
+  "body": "Essa rede é fruto da iniciativa de alguns moradores em parcearia com a coolab. A rede comunitária não visa lucro, os custos da conexão são cotizados entre os usuários para pagar os materiais já adquiridos e técnicos para manutenção e implementação da rede.",
+  "ui": {
+      "pt": {
+          "access": "accessar",
+          "granted": "acesso liberado",
+          "about": "sobre"
+      },
+      "es": {
+          "access": "accessar",
+          "granted": "acesso liberado",
+          "about": "sobre"
+      },
+      "en": {
+          "access": "access",
+          "granted": "acess granted",
+          "about": "about"
+      }
+  }
+}
