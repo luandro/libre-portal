@@ -214,7 +214,7 @@ module.exports = {
       'react-native': 'react-native-web',
       "react": "preact-compat",
       "react-dom": "preact-compat",
-      "create-react-class": "preact-compat/lib/create-react-class"
+      "create-react-class": "preact-compat/lib/create-react-class",
     },
     plugins: [
       // Adds support for installing with Plug'n'Play, leading to faster installs and adding

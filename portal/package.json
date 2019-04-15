@@ -9,8 +9,8 @@
     "leaflet": "^1.3.4",
     "preact": "^8.4.2",
     "preact-compat": "^3.18.4",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-leaflet": "^2.1.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.5"

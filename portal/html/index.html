@@ -1,0 +1,30 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Pirania</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <main class="main">
+      <h1>Bem vindo!</h1>
+      <form onsubmit="event.preventDefault(); authVoucher();">
+        <label>Entre o voucher</label>
+        <br />
+        <input type="text" id="voucherInput">
+        <br />
+        <input type="submit">
+      </form>
+      <h2 id="error"></h2>
+      <p id="result"></p>
+      <div id="station-list"></div>
+  </main>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
